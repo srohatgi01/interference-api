@@ -1,5 +1,6 @@
 const express = require("express")
 const cors = require("cors")
+require("dotenv").config()
 
 
 const app = express()
@@ -39,6 +40,6 @@ app.get('/interference-call-shelljar', (req, res) =>  {
 })
 
 
-app.listen(3000, (err) => {
+app.listen(process.env.PORT, (err) => {
     console.log(`server listening to PORT https://localhost:3000`)
 })
