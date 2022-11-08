@@ -27,16 +27,19 @@ async function query(data) {
 	return result;
 }
 
-app.get('/interference-call-shelljar', (req, res) =>  {
+app.post('/interference-call-shelljar', (req, res) =>  {
+	// console.log({"inputs": {
+	// 	"query": req.body["question"],
+	// 	"table": req.body["table"]
+	// }});
     query({"inputs": {
 		"query": req.body["question"],
-		"table": req.body["table"]
+		"table": JSON.parse(req.body["table"])
 	}}).then((response) => {
-	// console.log(JSON.stringify(response));
+		// console.log(response);
     res.status(200).json(response)
 });
     
-    // res.status(200).json(result)
 })
 
 
